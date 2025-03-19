@@ -7,7 +7,8 @@ $stmt = $conn->prepare("SELECT t1.team_id, t1.team_name, t1.team_logo,
                         JOIN winner as t2 ON t1.team_id = t2.team_id
                         JOIN player_details as t3 ON t2.player_id = t3.player_id
                         GROUP BY t1.team_id
-                        ORDER BY t1.team_id DESC");
+                        ORDER BY total_points DESC
+");
 $stmt->execute();
 
 $result = $stmt->fetchAll();
