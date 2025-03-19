@@ -3,7 +3,7 @@ let text = document.getElementById('bid-button').textContent; // Current price i
 let currentPrice = text.match(/\d+/g).join("");
 
 let spentPrice = document.getElementById('total_amount');
-let amountRemaining = 8000 - spentPrice.defaultValue; // Amount remaining in lakhs (₹10,000 Lakhs)
+let amountRemaining = 8090 - spentPrice.defaultValue; // Amount remaining in lakhs (₹10,000 Lakhs)
 
 // let amountRemaining = 10000; // Amount remaining in lakhs (₹10,000 Lakhs)
 let timeLeft = 5; // 90 seconds
@@ -24,6 +24,18 @@ function updateDisplay() {
 function updateBidButton() {
   const bidIncrement = currentPrice < 100 ? 25 : 75; // ₹25 L or ₹75 L
   // document.getElementById('bid-button').textContent = `✨ Bid Now (+₹${bidIncrement} L)`;
+  const nextBidPrice = currentPrice + bidIncrement;
+
+  // **Disable button if the team can't afford the next bid**
+  const bidButton = document.getElementById('bid-button');
+  if (nextBidPrice > amountRemaining) {
+    bidButton.disabled = true;
+   
+   
+  } else {
+    bidButton.disabled = false;
+    
+  }
 }
 
 // Update Timer
@@ -50,6 +62,7 @@ function updateBidButton() {
 
 // Handle Bidding
 function placeBid(a, b, c) {
+ 
       $.ajax({
         url: 'Backend/placeBid.php',
         type: 'POST',

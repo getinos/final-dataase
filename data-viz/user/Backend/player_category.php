@@ -23,24 +23,29 @@
     $wk_count = 0;
     
 
-    // $count = 0;
     foreach ($result as $row) {
-        // $u_count += htmlspecialchars($row['uncapped_count']);
-
-        if (htmlspecialchars($row['player_specialism']) == 'BATTER') {
-            $ba_count += htmlspecialchars($row['total_count']);
-        } else if (htmlspecialchars($row['player_specialism']) == 'BOWLER') {
-            $bo_count += htmlspecialchars($row['total_count']);
-        } else if (htmlspecialchars($row['player_specialism']) == 'ALL-ROUNDER') {
-            $ar_count += htmlspecialchars($row['total_count']);
-        } else if (htmlspecialchars($row['player_specialism']) == 'WICKETKEEPER') {
-            $wk_count += htmlspecialchars($row['total_count']);
-        } else if (htmlspecialchars($row['player_specialism']) == 'Uncapped') {
-            $un_count += htmlspecialchars($row['total_count']);
-        }else {
-            //echo "No player found";
+        $specialism = htmlspecialchars($row['player_specialism']);
+        $count = (int)$row['total_count'];
+    
+        switch ($specialism) {
+            case 'BATTER':
+                $ba_count += $count;
+                break;
+            case 'BOWLER':
+                $bo_count += $count;
+                break;
+            case 'ALL-ROUNDER':
+                $ar_count += $count;
+                break;
+            case 'WICKETKEEPER':
+                $wk_count += $count;
+                break;
+            case 'Uncapped':
+                $un_count += $count;
+                break;
         }
     }
+    
 
     // Batsmen
     // echo "<div class='player-category'>
