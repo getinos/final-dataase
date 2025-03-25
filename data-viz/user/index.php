@@ -22,20 +22,22 @@
         // header("location: ./Backend/loading.php?uid=".$_SESSION["team_id"]."&id=".$currentId);
          header("location: ./index.php?uid=".$_SESSION["team_id"]."&id=".$fetchId);
 
-    }$currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
-    $sql = "SELECT * FROM player_details WHERE player_id = :currentId";
+    }
+    $sql = "SELECT * FROM player_details WHERE sold_resume = :currentId";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":currentId", $currentId, PDO::PARAM_INT);
     $stmt->execute();
-
-
+   
+    
     $record = $stmt->fetch(PDO::FETCH_ASSOC);
-    $sold_unsold = htmlspecialchars($record['sold_resume']);
-
+    $sold_unsold = $record['sold_resume'];
     if ($sold_unsold ) {
-        echo "<script>markPlayerAbsent();</script>";
+        echo "<script> let bidButton = document.getElementById('bid-button');
+  bidButton.disabled = false;
+  bidButton.style.backgroundColor = '#008000';  
+  bidButton.style.cursor = 'pointer';</script>";
     }
-
+    
     
 ?>
 <!DOCTYPE html>
@@ -120,6 +122,7 @@
             </div>
         </div>
     </div>  
+    <
         <script src="./script/script.js"></script>
 </body>
 

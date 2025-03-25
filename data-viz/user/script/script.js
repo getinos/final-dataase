@@ -146,9 +146,9 @@ document.getElementById('bid-button').addEventListener('click', placeBid);
 updateDisplay();
 
 function markPlayerAbsent(){
-  let bidButton = document.getElementById("bid-button");
+  let bidButton = document.getElementById('bid-button');
   bidButton.disabled = false;
-  bidButton.style.backgroundColor = "#008000";  
-  bidButton.style.cursor = "pointer";
+  bidButton.style.backgroundColor = '#008000';  
+  bidButton.style.cursor = 'pointer';
 
 }

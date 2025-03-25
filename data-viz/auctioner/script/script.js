@@ -156,6 +156,7 @@ function markPlayerAsSold() {
                 
             }
         })
+    
         .catch(error => console.error("Error fetching next record:", error));
         }
 
