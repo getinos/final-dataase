@@ -22,7 +22,20 @@
         // header("location: ./Backend/loading.php?uid=".$_SESSION["team_id"]."&id=".$currentId);
          header("location: ./index.php?uid=".$_SESSION["team_id"]."&id=".$fetchId);
 
+    }$currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    $sql = "SELECT * FROM player_details WHERE player_id = :currentId";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":currentId", $currentId, PDO::PARAM_INT);
+    $stmt->execute();
+
+
+    $record = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sold_unsold = htmlspecialchars($record['sold_resume']);
+
+    if ($sold_unsold ) {
+        echo "<script>markPlayerAbsent();</script>";
     }
+
     
 ?>
 <!DOCTYPE html>

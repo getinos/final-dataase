@@ -22,6 +22,7 @@
     $ar_count = 0;
     $wk_count = 0;
     
+    
 
     foreach ($result as $row) {
          // $u_count += htmlspecialchars($row['uncapped_count']);

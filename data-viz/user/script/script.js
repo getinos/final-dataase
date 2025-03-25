@@ -3,7 +3,7 @@ let text = document.getElementById('bid-button').textContent; // Current price i
 let currentPrice = text.match(/\d+/g).join("");
 
 let spentPrice = document.getElementById('total_amount');
-let amountRemaining = 8090 - spentPrice.defaultValue; // Amount remaining in lakhs (₹10,000 Lakhs)
+let amountRemaining = 100000 - spentPrice.defaultValue; // Amount remaining in lakhs (₹10,000 Lakhs)
 
 // let amountRemaining = 10000; // Amount remaining in lakhs (₹10,000 Lakhs)
 let timeLeft = 5; // 90 seconds
@@ -31,12 +31,45 @@ function updateBidButton() {
   if (nextBidPrice > amountRemaining) {
     bidButton.disabled = true;
    
-   
   } else {
     bidButton.disabled = false;
     
   }
 }
+window.addEventListener("DOMContentLoaded", () => {
+  // Check if the player was marked as sold
+  var isSold = localStorage.getItem("playerSold");
+
+  // Select the Bid button
+  let bidButton = document.getElementById("bid-button"); 
+
+  if (isSold) {
+      console.log("Player was sold. Disabling the bid button.");
+
+      // Disable the Bid button
+      if (bidButton) {
+          bidButton.disabled = true;
+          bidButton.style.backgroundColor = "#ccc";  
+          bidButton.style.cursor = "not-allowed";
+      }
+  }
+});
+
+window.addEventListener("DOMContentLoaded",() => {
+  let resumeBid = localStorage.getItem("resumeBid");
+
+  let bidButton = document.getElementById("bid-button");
+
+  if(resumeBid) {
+    console.log("resuming the bidding again.");
+
+      if(bidButton) {
+        bidButton.disabled = false;
+          bidButton.style.backgroundColor = "#008000";  
+          bidButton.style.cursor = "pointer";
+      }
+  }
+})
 
 // Update Timer
 // function updateTimer() {
@@ -112,3 +145,10 @@ document.getElementById('bid-button').addEventListener('click', placeBid);
 // Initial Display Update
 updateDisplay();
 
+function markPlayerAbsent(){
+  let bidButton = document.getElementById("bid-button");
+  bidButton.disabled = false;
+  bidButton.style.backgroundColor = "#008000";  
+  bidButton.style.cursor = "pointer";
+
+}

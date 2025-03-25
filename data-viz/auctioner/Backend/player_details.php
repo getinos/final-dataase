@@ -80,7 +80,9 @@
                                                                      
             </div>";
             
-            echo "<button class='next-bid-button' onclick='loadNextRecord()'>Next Player for Bid</button>";
+            echo "  <button class='resume-bid-button' onclick='resumeBid()' id='resume'>resume bid </button>
+                    <button class='sold-player-button' onclick='markPlayerAsSold()' id='bid'>stop bid</button>
+                    <button class='next-bid-button' onclick='loadNextRecord()'>Next Player for Bid</button>";
 
     else: "<p>No record found</p>"; 
     endif;

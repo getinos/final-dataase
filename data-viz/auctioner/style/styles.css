@@ -1,14 +1,11 @@
-/* General Styles */@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* General Styles */
 body {
-    background: url(../../images/bg.gif) center / cover no-repeat;
-    backdrop-filter: hue-rotate(262deg) brightness(15%);
+    background: linear-gradient(90deg, #000000 , #090e21e6 );
     color: white;
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    font-family: 'poppins', sans-serif;
-
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
@@ -17,48 +14,39 @@ body {
     height: 100vh;
     gap: 20px;
     padding: 20px;
-    
 }
 
 /* Leaderboard Section */
 .leaderboard {
-    background: #00000039;
-    border: 1PX SOLID rgba(255, 255, 255, 0.393);
-    box-shadow: 0 0 20px rgba(76, 175, 79, 0.379);
+    background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 40PX;
-    /*height: 415px;*/
-    height: 52.6rem;
-
+    margin-bottom: 40px;
 }
 
 .team-rank {
     display: flex;
     justify-content: space-between;
-    padding: 21px;
-    margin-bottom: 20px;
-    /* background: linear-gradient(135deg, #ff7b00, #d66a12); */
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #252525;
     border-radius: 8px;
 }
 
 /* Current Player Section */
 .current-player {
-    background: #0000005c;
+    background: #1a1a1a;
     border-radius: 15px;
-    border: 1PX SOLID rgba(255, 255, 255, 0.393);
     padding: 30px;
     text-align: center;
     position: relative;
     margin-bottom: 40px;
-    box-shadow: 0 0 20px rgba(76, 175, 79, 0.405);
-
 }
 
 .player-image-container {
     position: relative;
     width: 100%;
-    max-width: 386px;
+    max-width: 340px;
     height: auto;
     aspect-ratio: 1 / 1;
     display: flex;
@@ -66,7 +54,7 @@ body {
     justify-content: center;
     overflow: hidden;
     border-radius: 5%;
-    box-shadow: 0 0 20px rgba(76, 175, 79, 0.13);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
 }
 
 .player-image-container::before {
@@ -76,7 +64,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../../images/bg.gif) center / cover no-repeat;
+    background: url(./images/bg.gif) center / cover no-repeat;
     filter: hue-rotate(262deg) brightness(30%);
     z-index: 1;
 }
@@ -84,13 +72,13 @@ body {
 .player-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     position: relative;
     z-index: 2;
 }
 
 .top{
-    margin-top: 10px !important;
+    margin-top: 20px !important;
 }
 
 .player-stats {
@@ -118,21 +106,21 @@ body {
 .stat-item {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
-    background: #1c1b1b;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     margin: 10px 0;
 }
 
 .diagonal-bar {
-    width: 350px;
+    width: 370px;
     height: 50px;
-    background: linear-gradient(135deg, #ff7b00, #d66a12);
+    background: linear-gradient(135deg, #ff7b00, #ff3e00);
     clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.349);
+    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
     position: absolute;
     top: 8%;
     left: 45%;
@@ -158,9 +146,6 @@ body {
     position: absolute;
     left: 57%;
     font-size: clamp(16px, 2vw, 22px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 .next-bid-button {
@@ -264,20 +249,7 @@ body {
 }
 
 .current-bid {
-    background: linear-gradient(200deg, #ff3e00, #ce9702); 
-    color: #1a1a1a;
-    padding: 15px 2px;
-    font-size: 16px;
-    margin-top: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0px 0px 15px rgba(161, 42, 5, 0.7);
-    animation: glow 1.5s infinite alternate ease-in-out, float 2s infinite ease-in-out;
-    
+    padding-top: 5%;
 }
 
 .current-bidder {
@@ -289,14 +261,11 @@ body {
 }
 
 .bidding-history-container {
-    background: #0000005c;
-    border: 1PX SOLID rgba(255, 255, 255, 0.393);
-    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+    background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
     /* margin-top: 20px; */
     margin-bottom: 40px; 
-    height: 52.6rem;
 }
 
 .bidding-history-box {
@@ -315,6 +284,8 @@ body {
 
 
 
+
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;
@@ -328,120 +299,4 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #4CAF50;
     border-radius: 4px;
-}
-
-.player-image {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-color: #555;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8rem;
-    color: white;
-    margin-right: 1rem;
-    flex-shrink: 0;
-}
-
-/* Centered player name */
-.player-name {
-    font-size: 1rem;
-    font-weight: bold;
-    flex-grow: 1;
-    text-align: center;
-}
-
-/* Right-aligned price/category */
-.player-extra {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #aaa;
-    text-align: right;
-    flex-shrink: 0;
-}
-
-.sold-palyers , .upcoming-players{
-    background: #00000039;   
-    border-radius: 21px;
-    width: 25rem;
-    height: 345px;
-    margin-top: 55px;
-    border: 1PX SOLID rgba(255, 255, 255, 0.393);
-    box-shadow: 0 0 20px rgba(76, 175, 79, 0.379);
-
-}
-
-
-.player-box-item {
-    background: #34343400;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space between sections */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    min-width: 15rem;
-    color: white;
-}
-
-
-.box-list {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    overflow-y: scroll; /* Keep vertical scrolling */
-    -ms-overflow-style: none;
-    text-align: center;
-    height: 18rem; /* Set max height to avoid excessive height */
-    padding-right: 5px; /* Prevent accidental horizontal scroll */
-}
-.box-list::-webkit-scrollbar{
-    display: none;
-}
-
-.box-header{
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    text-align: center;
-}
-
-.box-header {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 0.5rem;
-}
-
-
-.player-box{
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    position: absolute;
-    bottom: 5%;
-    width: 90%;
-    left: 5%;
-    z-index: 2;
-    text-transform: uppercase;
-}
-.player-box > div 
-{
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    color: white;
-    font-family: 'Popins',sans-serif;
-}
-
-.timer-container{
-    display: flex;
-    justify-content: space-between;
-}
-.role{
-    height: 10px;
 }
