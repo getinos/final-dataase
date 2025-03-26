@@ -4,11 +4,14 @@ include './../DB/config.php';
 $currentId = isset($_GET['id']) ? (is_numeric($_GET['id']) ? intval($_GET['id']) : 0) : 0;
 $team = isset($_GET['uid']) && is_numeric($_GET['uid']) ? intval($_GET['uid']) : 0;
 
-    $sql = "SELECT * FROM (
-                SELECT player_price FROM bidding WHERE player_id = :currentId
-                UNION ALL
+    $sql = "SELECT * FROM 
+                (
+                    SELECT player_price FROM bidding WHERE player_id = :currentId
+                        UNION ALL
                     SELECT player_price FROM player_details WHERE player_id = :currentId
-                ) AS combined_results ORDER BY player_price DESC LIMIT 1";
+                ) AS combined_results 
+                
+                ORDER BY player_price DESC LIMIT 1";
 
 
     // Prepare and execute the query
@@ -29,11 +32,25 @@ $team = isset($_GET['uid']) && is_numeric($_GET['uid']) ? intval($_GET['uid']) :
     } else if($amount >= 500) {
         $C_amount = $amount + 25;
     } else {
-        alert("Invalid Amount");
+        echo "<script type='text/javascript'> alert('Invalid Amount')</script>";
     }
 
+    $s_sql = "SELECT sold_resume FROM player_details WHERE player_id = :currentId";
+    $s_stmt = $conn->prepare($s_sql);
+    $s_stmt->execute([':currentId' => $currentId]);
+
+    $s_result = $s_stmt->fetch();
+    $sold_status = htmlspecialchars($s_result['sold_resume']);
+
+    echo "<script>console.log('" . $sold_status . "');</script>";
+
 if ($result) {
-    echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";
+    if ($sold_status == 0 || "") {
+        echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+    }else{
+        echo "<button id='bid-button' disabled> BID LOCKED </button>";
+    }
+    
 } else {
     echo "<div class='team-rank'> No teams found. </div>";
 }

@@ -4,7 +4,7 @@
     
     $currentUId = isset($_GET['uid']) ? intval($_GET['uid']) : 0;
     
-    $sql = "SELECT player_details.player_specialism, 
+    $sql = "SELECT  player_details.player_specialism, 
                 SUM(CASE WHEN player_details.player_status = 'Uncapped' THEN 1 ELSE 0 END) AS uncapped_count,
                 COUNT(*) AS total_count
             FROM player_details 
@@ -21,10 +21,6 @@
     $bo_count = 0;
     $ar_count = 0;
     $wk_count = 0;
-
-
-
-    
 
     foreach ($result as $row) {
          // $u_count += htmlspecialchars($row['uncapped_count']);

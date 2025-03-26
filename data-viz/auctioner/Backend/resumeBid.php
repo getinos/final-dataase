@@ -12,7 +12,7 @@ if ($currentId === 0) {
 }
 
 // ✅ 1. Update `sold_resume` to 2 for the current player
-$query = "UPDATE player_details SET sold_resume = 2 WHERE player_id = :currentId";
+$query = "UPDATE player_details SET sold_resume = 0 WHERE player_id = :currentId";
 $s_stmt = $conn->prepare($query);
 $updateSuccess = $s_stmt->execute([':currentId' => $currentId]);
 

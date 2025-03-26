@@ -28,6 +28,8 @@
         $catches = htmlspecialchars($record['player_catches']);
         $run_outs = htmlspecialchars($record['player_run_outs']);
         $stump = htmlspecialchars($record['player_stumpings']);
+        $sold_status = htmlspecialchars($record['sold_resume']);
+
 
             echo " <div class='image-div'>
                         <div class='player-card'>
@@ -66,4 +68,15 @@
 
     else: "<p>No record found</p>"; 
     endif;
+    // $sold_status = htmlspecialchars($record['sold_resume']);
+    // if($sold_status){
+    //     echo "<script>   let bidButton = document.getElementById('bid-button');
+    //     if (bidButton) {
+    //         bidButton.disabled = false;
+    //         bidButton.style.backgroundColor = '#008000';  
+    //         bidButton.style.cursor = 'not-allowed'; 
+    //     }</script>";}
+    // else
+    //     "<p>no records</p>"
+    
 ?>

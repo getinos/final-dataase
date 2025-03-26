@@ -27,4 +27,6 @@
     } else {
         echo "<div class='team-rank'> No teams found. </div>";
     }
+
+   
 ?>

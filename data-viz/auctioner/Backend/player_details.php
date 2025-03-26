@@ -40,6 +40,7 @@
         $catches = htmlspecialchars($record['player_catches']);
         $run_outs = htmlspecialchars($record['player_run_outs']);
         $stump = htmlspecialchars($record['player_stumpings']);
+        $sold_status = htmlspecialchars($record['sold_resume']);
 
         echo "<div class='player-image-container'>
                 <img id='player-image' src='".$img_path.$img."' alt='Player'>
@@ -80,8 +81,13 @@
                                                                      
             </div>";
             
-            echo "  <button class='resume-bid-button' onclick='resumeBid()' id='resume'>resume bid </button>
-                    <button class='sold-player-button' onclick='markPlayerAsSold()' id='bid'>stop bid</button>
+            if ($sold_status == 0 || "") {
+                echo "<button class='sold-player-button' onclick='markPlayerAsSold()' id='bid'>stop bid</button>";    
+            }else{
+                echo "<button class='resume-bid-button' onclick='resumeBid()' id='resume'>resume bid </button>";
+            }
+
+            echo "  
                     <button class='next-bid-button' onclick='loadNextRecord()'>Next Player for Bid</button>";
 
     else: "<p>No record found</p>"; 

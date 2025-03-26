@@ -145,10 +145,28 @@ document.getElementById('bid-button').addEventListener('click', placeBid);
 // Initial Display Update
 updateDisplay();
 
-function markPlayerAbsent(){
-  let bidButton = document.getElementById('bid-button');
-  bidButton.disabled = false;
-  bidButton.style.backgroundColor = '#008000';  
-  bidButton.style.cursor = 'pointer';
+//function //PlayerAbsent(){
+ // let bidButton = document.getElementById('bid-button');
+ // bidButton.disabled = false;
+ // bidButton.style.backgroundColor = '#008000';  
+ // bidButton.style.cursor = 'pointer';
 
-}
+//}
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   let urlParams = new URLSearchParams(window.location.search);
+//   let currentId = urlParams.get("id") || 0; // Get player ID from URL
+
+//   fetch("Backend/getPlayerStatus.php?id=" + currentId)
+//       .then(response => response.json())
+//       .then(data => {
+//           let bidButton = document.getElementById("bid-button");
+
+//           if (data.sold_resume == 2) {
+//               bidButton.disabled = true; // Disable the button
+//               bidButton.style.backgroundColor = "#ccc"; // Grey out the button
+//               bidButton.style.cursor = "not-allowed";
+//           }
+//       })
+//       .catch(error => console.error("Error fetching player status:", error));
+// });
